@@ -9,11 +9,85 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <style>
+        .project-section {
+            margin-bottom: 2rem;
+            scroll-margin-top: 100px;
+        }
+
+        .project-section .collapse {
+            scroll-margin-top: 100px;
+        }
+
+        .project-section-btn {
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 16px 22px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            outline: none !important;
+            text-decoration: none !important;
+        }
+
+        .project-section-btn:hover {
+            background-color: #f8faff;
+            border-color: #0ea0ff;
+            box-shadow: 0 4px 14px rgba(14, 160, 255, 0.12);
+        }
+
+        .project-section-btn .section-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-section-btn .section-badge {
+            font-size: 0.85rem;
+            background: #eef5ff;
+            color: #0ea0ff;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+
+        .project-section-btn .toggle-icon {
+            font-size: 1.3rem;
+            color: #0ea0ff;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: rotate(180deg);
+        }
+
+        .project-section-btn.collapsed .toggle-icon {
+            transform: rotate(0deg);
+        }
+
+        .project-section-btn.collapsed {
+            background-color: #ffffff;
+            border-color: #e9ecef;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-actions-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-        <div class="container"><a class="navbar-brand logo" href="#">Victor Nunes</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand logo" href="#">Victor Nunes</a><button data-toggle="collapse"
+                class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -27,211 +101,445 @@
     <main class="page projects-page">
         <section class="portfolio-block projects-cards">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/bushido.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h2>Bushido Saga</h2>
-                                <p>Action / Adventure</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.samurai&amp;hl=en&amp;gl=US" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/us/app/bushido-saga/id1053899921" target="_blank">iOS</a>
-                            </div>
-                        </div>
+                <div class="heading text-center mb-4">
+                    <h2>Projects</h2>
+                </div>
+
+                <div class="section-actions-bar">
+                    <div>
+                        <button class="btn btn-sm btn-outline-primary mr-1" id="btnExpandAll" type="button">Expand
+                            All</button>
+                        <button class="btn btn-sm btn-outline-secondary" id="btnCollapseAll" type="button">Collapse
+                            All</button>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/disc.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h2>Disc Champs</h2>
-                                <h6></h6>
-                                <p>Casual / Sport</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.frisbee&amp;hl=en_US&amp;gl=US" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/my/app/disc-champs/id1588918785" target="_blank">iOS</a>
+                </div>
+
+                <!-- SECÇÃO: Tapps games -->
+                <div class="project-section">
+                    <button
+                        class="btn btn-block text-left d-flex justify-content-between align-items-center project-section-btn"
+                        type="button" data-toggle="collapse" data-target="#sec-tapps" aria-expanded="true"
+                        aria-controls="sec-tapps">
+                        <span class="section-title">
+                            <i class="icon ion-briefcase mr-2 text-primary"></i> Tapps Games
+                            <span class="section-badge">2</span>
+                        </span>
+                        <i class="icon ion-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="collapse show mt-4" id="sec-tapps">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/card_guardians.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Card Guardians</h2>
+                                        <p></p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.tapps.roguelike.rpg.cardguardians&hl=pt_BR"
+                                            target="_blank">Android</a><a class="btn btn-primary btn-block text-white"
+                                            role="button" style="margin: 5px;"
+                                            href="https://apps.apple.com/ao/app/card-guardians-rpg-de-cartas/id1566663161"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/king.io.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h2>King.io</h2>
-                                <h6></h6>
-                                <p>Strategy</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.king.io&amp;hl=en_US&amp;gl=US" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/us/app/king-io/id1531011747" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/toy.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h2>Toy Assembly</h2>
-                                <h6></h6>
-                                <p>Simulation</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.toy" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/single_line.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h2>Single Line Draw</h2>
-                                <h6></h6>
-                                <p>Simulation</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.single" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/coin_tower.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h2>Coin Tower</h2>
-                                <h6></h6>
-                                <p>Simulation</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.coin" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/garden.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h2>Garden Swipe</h2>
-                                <h6></h6>
-                                <p>Simulation</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.gardenswipe&amp;hl=en_US&amp;gl=US" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/my/app/garden-swipe/id1598142371" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/magbricks.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h2>Magnetic Bricks</h2>
-                                <h6></h6>
-                                <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.magneticbricks" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/us/app/magnetic-bricks/id1534347184" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/spy-master.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Master Spy</h2>
-                                <p>Action / Puzzle</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.spymaster" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/chase-shooter.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Chase Shooter</h2>
-                                <p>Action</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=action.chase.shooter" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/cheat-race.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Cheat Race</h2>
-                                <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.cheat" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/war.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>This is War</h2>
-                                <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.war" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/dupe.jpg" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Dupe Foods</h2>
-                                <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.dupeballs" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/my/app/dupe-food/id1598175671" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/onearrow.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>One Last Arrow</h2>
-                                <p>Strategy</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.onearrow" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/us/app/one-last-arrow/id1538193252" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/chaoscity.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Chaos City</h2>
-                                <p>Action / Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.magneticpeople" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/us/app/chaos-city/id1534378287" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/virusrush.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Swarm Rush</h2>
-                                <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.virus&amp;hl=en_US&amp;gl=US" target="_blank">Android</a><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/my/app/swarm-rush/id1559588684" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/fake%20hunter.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Fake Hunter</h2>
-                                <p>Action / Puzzle</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/us/app/fake-hunter/id1545015422" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/suckcity.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Suck Them All</h2>
-                                <p>Action / Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://apps.apple.com/us/app/suck-them-all/id1539985537" target="_blank">iOS</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/beachrun.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Beach Run</h2>
-                                <p>Strategy</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.VHNGames.BeachRun" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/tictac.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Tic Tac Toe <br>Neon</h2>
-                                <p>Strategy</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.CPS.TicTacToeNeon" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/bolsominion.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Bolsominion Evolution</h2>
-                                <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.VHN.BolsominionEvo" target="_blank">Android</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover" src="assets/img/nature/luladrão.png" alt="Card Image"></a>
-                            <div class="card-body">
-                                <h6></h6>
-                                <h2>Luladrão: A Fuga da Prisão</h2>
-                                <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button" style="margin: 5px;" href="https://play.google.com/store/apps/details?id=com.VHN.MoluscoRun" target="_blank">Android</a>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/psf.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Pet Shop Fever</h2>
+                                        <p></p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.tapps.virtual.pet.hotel.games.world"
+                                            target="_blank">Android</a><a class="btn btn-primary btn-block text-white"
+                                            role="button" style="margin: 5px;"
+                                            href="https://apps.apple.com/us/app/pet-shop-fever-hotel-animal/id1580092431"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- SECÇÃO 1: PANDORA GAME STUDIO -->
+                <div class="project-section">
+                    <button
+                        class="btn btn-block text-left d-flex justify-content-between align-items-center project-section-btn collapsed"
+                        type="button" data-toggle="collapse" data-target="#sec-pandora" aria-expanded="false"
+                        aria-controls="sec-pandora">
+                        <span class="section-title">
+                            <i class="icon ion-briefcase mr-2 text-primary"></i> Pandora Game Studio
+                            <span class="section-badge">18</span>
+                        </span>
+                        <i class="icon ion-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="collapse mt-4" id="sec-pandora">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/bushido.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Bushido Saga</h2>
+                                        <p>Action / Adventure</p><a class="btn btn-primary btn-block text-white"
+                                            role="button" style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.samurai&amp;hl=en&amp;gl=US"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/us/app/bushido-saga/id1053899921"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/spy-master.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Master Spy</h2>
+                                        <p>Action / Puzzle</p><a class="btn btn-primary btn-block text-white"
+                                            role="button" style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.spymaster"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/chase-shooter.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Chase Shooter</h2>
+                                        <p>Action</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=action.chase.shooter"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/chaoscity.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Chaos City</h2>
+                                        <p>Action / Casual</p><a class="btn btn-primary btn-block text-white"
+                                            role="button" style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.magneticpeople"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/us/app/chaos-city/id1534378287"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/fake%20hunter.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Fake Hunter</h2>
+                                        <p>Action / Puzzle</p><a class="btn btn-primary btn-block text-white"
+                                            role="button" style="margin: 5px;"
+                                            href="https://apps.apple.com/us/app/fake-hunter/id1545015422"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/suckcity.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Suck Them All</h2>
+                                        <p>Action / Casual</p><a class="btn btn-primary btn-block text-white"
+                                            role="button" style="margin: 5px;"
+                                            href="https://apps.apple.com/us/app/suck-them-all/id1539985537"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/toy.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Toy Assembly</h2>
+                                        <h6></h6>
+                                        <p>Simulation</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.toy"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/single_line.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Single Line Draw</h2>
+                                        <h6></h6>
+                                        <p>Simulation</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.single"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/coin_tower.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Coin Tower</h2>
+                                        <h6></h6>
+                                        <p>Simulation</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.coin"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/garden.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Garden Swipe</h2>
+                                        <h6></h6>
+                                        <p>Simulation</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.gardenswipe&amp;hl=en_US&amp;gl=US"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/my/app/garden-swipe/id1598142371"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/king.io.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>King.io</h2>
+                                        <h6></h6>
+                                        <p>Strategy</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.king.io&amp;hl=en_US&amp;gl=US"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/us/app/king-io/id1531011747"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/onearrow.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>One Last Arrow</h2>
+                                        <p>Strategy</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.onearrow"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/us/app/one-last-arrow/id1538193252"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/disc.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Disc Champs</h2>
+                                        <h6></h6>
+                                        <p>Casual / Sport</p><a class="btn btn-primary btn-block text-white"
+                                            role="button" style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.frisbee&amp;hl=en_US&amp;gl=US"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/my/app/disc-champs/id1588918785"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/magbricks.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h2>Magnetic Bricks</h2>
+                                        <h6></h6>
+                                        <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.magneticbricks"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/us/app/magnetic-bricks/id1534347184"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/cheat-race.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Cheat Race</h2>
+                                        <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.cheat"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/war.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>This is War</h2>
+                                        <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.war"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/dupe.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Dupe Foods</h2>
+                                        <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.dupeballs"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/my/app/dupe-food/id1598175671"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/virusrush.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Swarm Rush</h2>
+                                        <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.pandoragamestudio.virus&amp;hl=en_US&amp;gl=US"
+                                            target="_blank">Android (not available)</a><a
+                                            class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://apps.apple.com/my/app/swarm-rush/id1559588684"
+                                            target="_blank">iOS</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECÇÃO 2: PERSONAL PROJECTS -->
+                <div class="project-section">
+                    <button
+                        class="btn btn-block text-left d-flex justify-content-between align-items-center project-section-btn collapsed"
+                        type="button" data-toggle="collapse" data-target="#sec-personal" aria-expanded="false"
+                        aria-controls="sec-personal">
+                        <span class="section-title">
+                            <i class="icon ion-person mr-2 text-primary"></i> Personal Projects
+                            <span class="section-badge">5</span>
+                        </span>
+                        <i class="icon ion-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="collapse mt-4" id="sec-personal">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/gchat_tictactoe.jpg" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Tic Tac Toe for Google Chat</h2>
+                                        <p></p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://workspace.google.com/marketplace/app/tic_tac_toe/178767291252"
+                                            target="_blank">Workspace Marketplace</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/beachrun.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Beach Run</h2>
+                                        <p>Strategy</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.VHNGames.BeachRun"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/tictac.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Tic Tac Toe <br>Neon</h2>
+                                        <p>Strategy</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.CPS.TicTacToeNeon"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/bolsominion.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Bolsominion Evolution</h2>
+                                        <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.VHN.BolsominionEvo"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0"><a href="#"><img class="card-img-top scale-on-hover"
+                                            src="assets/img/nature/luladrão.png" alt="Card Image"></a>
+                                    <div class="card-body">
+                                        <h6></h6>
+                                        <h2>Luladrão: A Fuga da Prisão</h2>
+                                        <p>Casual</p><a class="btn btn-primary btn-block text-white" role="button"
+                                            style="margin: 5px;"
+                                            href="https://play.google.com/store/apps/details?id=com.VHN.MoluscoRun"
+                                            target="_blank">Android (not available)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
     <footer class="text-center text-white bg-primary page-footer">
         <div class="container text-white">
-            <div class="links"><a class="text-white" href="cv.html">About me</a><a class="text-white" href="contact.html">Contact</a><a class="text-white" href="projects-grid-cards.html">Projects</a></div>
+            <div class="links"><a class="text-white" href="cv.html">About me</a><a class="text-white"
+                    href="contact.html">Contact</a><a class="text-white" href="projects-grid-cards.html">Projects</a>
+            </div>
             <div class="social-icons"></div>
         </div>
     </footer>
@@ -240,6 +548,39 @@
     <script src="assets/js/button_links.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script>
+        $('#btnExpandAll').on('click', function () {
+            $('.project-section .collapse').collapse('show');
+        });
+        $('#btnCollapseAll').on('click', function () {
+            $('.project-section .collapse').collapse('hide');
+        });
+
+        function scrollToHash() {
+            var hash = window.location.hash;
+            if (hash) {
+                var $target = $(hash);
+                if ($target.length) {
+                    if ($target.hasClass('collapse')) {
+                        $target.collapse('show');
+                    }
+                    var $section = $target.closest('.project-section');
+                    var targetTop = ($section.length ? $section : $target).offset().top - 90;
+                    $('html, body').stop().animate({
+                        scrollTop: targetTop
+                    }, 400);
+                }
+            }
+        }
+
+        $(document).ready(function () {
+            scrollToHash();
+        });
+
+        $(window).on('hashchange', function () {
+            scrollToHash();
+        });
+    </script>
 </body>
 
 </html>
